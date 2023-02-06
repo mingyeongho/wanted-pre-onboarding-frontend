@@ -4,7 +4,7 @@ import TodoForm from "./TodoForm/TodoForm";
 import TodoList from "./TodoList/TodoList";
 
 const Home = () => {
-  const { todos, setRefresh } = useHome();
+  const { todos, setRefresh, onLogout } = useHome();
 
   return (
     <S.Home>
@@ -16,6 +16,7 @@ const Home = () => {
           <span>Todo가 없습니다.</span>
         )}
       </S.TodoListContainer>
+      <S.Logout children={"로그아웃"} onClick={onLogout} />
     </S.Home>
   );
 };

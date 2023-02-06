@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import getTodos from "../../../apis/Todo/getTodos";
+import Storage from "../../../utils/Storage";
 import { TodoType } from "../../../utils/type";
 
 const useHome = () => {
+  const navigate = useNavigate();
   const [todos, setTodos] = useState<TodoType[]>();
   const [refresh, setRefresh] = useState(0);
 
@@ -17,11 +20,16 @@ const useHome = () => {
     }
   };
 
+  const onLogout = () => {
+    Storage.removeStorage({ key: "user" });
+    navigate("/signin");
+  };
+
   useEffect(() => {
     (async () => await fetchTodos())();
   }, [refresh]);
 
-  return { todos, setRefresh };
+  return { todos, setRefresh, onLogout };
 };
 
 export default useHome;

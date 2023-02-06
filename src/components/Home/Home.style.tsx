@@ -10,3 +10,18 @@ export const TodoListContainer = styled.div`
   padding: 10px;
   border-radius: 20px;
 `;
+
+export const Logout = styled.button`
+  border: none;
+  outline: none;
+  padding: 6px;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  background-color: ${Palette.accent};
+  color: white;
+  font-weight: bolder;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;

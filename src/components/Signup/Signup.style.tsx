@@ -24,13 +24,13 @@ export const Label = styled.label`
   font-weight: bolder;
 `;
 
-export const Input = styled.input`
-  border: none;
+export const Input = styled.input<{ valid: "correct" | "incorrect" }>`
   outline: none;
   padding: 14px;
   letter-spacing: 1px;
   border-radius: 10px;
   font-size: 1.125rem;
+  border: 3px solid ${(props) => (props.valid === "correct" ? "green" : "red")};
 `;
 
 export const Button = styled.button`
